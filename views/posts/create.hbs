@@ -1,0 +1,25 @@
+<h2>Log a new Movie!</h2>
+
+<form action="/posts/post-create" method="POST">
+  <label> Movie Title:
+    <input type="text" name="title" />
+  </label>
+  <br>
+
+  <label> Review:
+    <textarea type="text" name="content"> </textarea>
+  </label>
+  <br>
+
+  <label for="author-select"> Created by:
+    <select name="author">
+      <option disable selected value=""></option>
+      {{#each dbUsers}}
+        <option value="{{this._id}}"> {{this.username}} </option>
+      {{/each}}
+    </select>
+  </label>
+  <br>
+
+  <button type="submit"> Post review </button>
+</form>

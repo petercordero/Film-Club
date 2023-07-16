@@ -1,4 +1,4 @@
-<h2>Log a new Film!</h2>
+<h2>Log a new Review!</h2>
 
 <form action="/posts/post-create" method="POST">
   <label> Film Title:
@@ -11,7 +11,11 @@
   </label>
   <br>
 
-  <label for="author-select"> Created by:
+<label for="imageUrl">Image URL:</label>
+    <input id="imageUrl" type="text" name="imageUrl">
+<br>
+
+  <label for="author-select"> Created b0y:
     <select name="author">
       <option disable selected value=""></option>
       {{#each dbUsers}}

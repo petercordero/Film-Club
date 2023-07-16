@@ -1,8 +1,29 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: blue;
 }
 
 a {
-  color: #00B7FF;
+  color: black;
 }
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: navy;
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.movie-posters {
+  display: flex;
+  justify-content: space-around;
+  height: 60vh;
+}
+
+ 

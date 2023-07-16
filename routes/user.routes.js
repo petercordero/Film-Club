@@ -63,44 +63,46 @@ router.post("/sign-up", (req, res, next) => {
 });
 
 
-router.get("/login", isLoggedIn, (req, res) => res.render("users/login"));
+router.get('/login', (req, res, next) => {
+  res.render('users/login.hbs')
+})
 
-router.post('/login', (req, res) => {
-  console.log('SESSION =====> ', req.session);
+router.post('/login', isLoggedIn, (req, res, next) => {
+
   const { username, password } = req.body;
  
   if (!username || !password) {
-    res.render('users/login', {
-      message: "Please enter both username and password to login."
+    res.render('users/login.hbs', {
+      message: 'Please enter both username and password to login.'
     });
     return;
-  };
+  }
  
-//   User.findOne({ username })
-//     .then(user => {
-//       if (!user) {
-//         console.log("Username not registered.");
-//         res.render('users/login.hbs', { message: 'User not found and/or incorrect password.' });
-//         return;
-//       } else if (
-//         bcrypt.compareSync(password, user.password)) {
+  User.findOne({ username })
+    .then(user => {
+      if (!user) {
+        console.log("Username not registered.");
+        res.render('users/login.hbs', { message: 'User not found and/or password is incorrect.' });
+        return;
+      } else if (
+        bcrypt.compareSync(password, user.password)) {
         
-//         req.session.user = user  
+        req.session.user = user  
 
-//         console.log("Sessions after login:", req.session)
+        console.log("Session:", req.session)
 
-//         res.redirect('/')
-//       } else {
-//         console.log("Incorrect password.");
-//         res.render('users/login.hbs', { message: 'User not found and/or incorrect password.' });
-//       }
-//     })
-//     .catch(error => next(error));
+        res.redirect('/')
+      } else {
+        console.log("Incorrect password.");
+        res.render('users/login.hbs', { message: 'User not found and/or password is incorrect.' });
+      }
+    })
+    .catch(error => next(error));
 });
 
-router.get('/user-profile', isLoggedOut, (req, res) => {
-  res.render('users/user-profile', { userInSession: req.session.user });
-});
+// router.get('/user-profile', (req, res) => {
+//   res.render('users/user-profile.hbs', { userInSession: req.session.user });
+// });
 
 router.get("/", (req, res) => {
   User.find()
@@ -114,11 +116,12 @@ router.get("/posts/:userId", (req, res, next) => {
   })
   .populate('author')
   .then((foundPosts) => {
-    res.render('users/details.hbs', {posts: foundPosts})
+    res.render('users/user-profile.hbs', {posts: foundPosts})
   })
   .catch((err) => {
     next(err)
   })
 });
+
 
 module.exports = router;

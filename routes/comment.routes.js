@@ -4,7 +4,7 @@ const User = require("../models/User.model");
 const Post = require("../models/Post.model");
 const Comment = require("../models/Comment.model");
 
-router.post('/posts/:postId/comment', (req, res, next) => {
+router.post('/posts/comment/:postId', (req, res, next) => {
     const { postId } = req.params;
     const { author, content } = req.body;
    
@@ -52,7 +52,5 @@ router.post('/posts/:postId/comment', (req, res, next) => {
         next(err);
       });
   });
-   
-  module.exports = router;
 
 module.exports = router;

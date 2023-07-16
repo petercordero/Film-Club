@@ -1,11 +1,9 @@
-<h2>Users</h2>
+<h2>Film Club Community</h2>
 
 <ul>
   {{#each users}}
-    <li> {{ this.username }}
-
-      {{!-- uncomment after you create user details page --}}
-      {{!-- <a href="/users/{{this._id}}/posts">Read posts</a> --}}
+    <li> 
+      <a href="/users/posts/{{author._id}}">{{ this.username }}</a>
     </li>
   {{/each}}
 </ul>

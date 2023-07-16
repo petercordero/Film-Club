@@ -1,11 +1,15 @@
+
+{{!-- 
 {{#if userInSession}}
   <h2>Welcome, {{ userInSession.username }}!</h2>
   <p>This is your profile page!</p>
-  <button>
-    <a href="/auth/user-profile">Reload the page</a>
-  </button>
-{{else}}
-  
-  <br><p>Still no logged in user, sorry!</p>
  
-{{/if}}
+{{/if}} --}}
+ {{#each posts}}
+<h2>{{this.author.username}}'s Profile</h2>
+<ul>
+    <li>
+         <a href="/posts/details/{{this._id}}">{{ this.title }} by {{this.author.username}}</a>   
+    </li>
+</ul>
+  {{/each}}

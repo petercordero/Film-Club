@@ -2,13 +2,18 @@
 
 <h2>{{title}}</h2>
 <div>
-  {{content}}
+  <h4>{{content}}</h4>
   <br>
-  - by {{author.username}} 📽️
+  <h5>posted by {{author.username}} 📽️</h5>
 </div>
 
+<img class="movie-posters" src="{{imageUrl}}" alt="film">
+
+<a href="/posts/edit/{{_id}}">Edit Review</a>
+<a href="/posts/delete/{{_id}}">Delete Review</a>
+
 {{#unless comments}}
-  <p>No comments yet!</p>
+  <p>No comments yet!</p> 
 {{/unless}}
 
 {{#each comments}}
@@ -31,4 +36,4 @@
 </form>
 
 <br>
-<a href="/users/posts/{{author._id}}">See all {{author.username}}'s posts </a>
+<a href="/users/posts/{{author._id}}">See all {{author.username}}'s posts</a>

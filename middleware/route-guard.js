@@ -1,4 +1,4 @@
-const isLoggedOut = (req, res, next) => {
+const isLoggedIn = (req, res, next) => {
     if (!req.session.user) {
       return res.redirect('/users/login');
     }
@@ -7,7 +7,7 @@ const isLoggedOut = (req, res, next) => {
   
   // if an already logged in user tries to access the login page it
   // redirects the user to the home page
-  const isLoggedIn = (req, res, next) => {
+  const isLoggedOut = (req, res, next) => {
     if (req.session.user) {
       return res.redirect('/');
     }

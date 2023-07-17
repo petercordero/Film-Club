@@ -4,23 +4,27 @@ const User = require("../models/User.model");
 const Post = require("../models/Post.model");
 const Comment = require('../models/Comment.model')
 
-router.get("/post-create", (req, res) => {
-  User.find()
-    .then((dbUsers) => {
-      res.render("posts/create", { dbUsers });
-    })
-    .catch((err) => console.log(`Err while displaying post input page: ${err}`));
-});
+const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
 
-router.post('/post-create', (req, res, next) => {
-  const { title, content, imageUrl, author } = req.body;
+router.get("/new-review", isLoggedIn, (req, res) => {
+      res.render("posts/create");
+    })
+
+router.post('/new-review', isLoggedIn, (req, res, next) => {
+  const { title, content, imageUrl } = req.body;
+
+  const author  = req.session.user._id
 
   Post.create({ title, content, imageUrl, author })
     .then(dbPost => {
+
+      console.log("DBPOST", dbPost, author )
     
-      return User.findByIdAndUpdate(author, { $push: { posts: dbPost._id } });
+      return User.findByIdAndUpdate(author, { $push: { posts: dbPost._id } }, {new: true});
     })
-    .then(() => res.redirect('/posts'))
+    .then((updatedUser) => {
+      console.log("updated user", updatedUser)
+      res.redirect('/posts')})
     .catch(err => {
       console.log(`Err while creating the post in the DB: ${err}`);
       next(err);

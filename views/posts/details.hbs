@@ -24,10 +24,7 @@
 
 <h3>Add comment</h3>
 
-<form action="/posts/comment/{{_id}}" method="post">
-  <label> Your username:
-    <input type="text" name="author" />
-  </label>
+<form action="/comments/posts/comment/{{_id}}" method="post">
 
   <input type="text" name="postAuthor" value="{{author.username}}" hidden />
   <textarea name="content" cols="30" rows="2"></textarea>

@@ -1,6 +1,6 @@
 <h2>Log a new Review!</h2>
 
-<form action="/posts/post-create" method="POST">
+<form action="/posts/new-review" method="POST">
   <label> Film Title:
     <input type="text" name="title" />
   </label>
@@ -15,14 +15,6 @@
     <input id="imageUrl" type="text" name="imageUrl">
 <br>
 
-  <label for="author-select"> Created b0y:
-    <select name="author">
-      <option disable selected value=""></option>
-      {{#each dbUsers}}
-        <option value="{{this._id}}"> {{this.username}} </option>
-      {{/each}}
-    </select>
-  </label>
   <br>
 
   <button type="submit"> Post Review </button>

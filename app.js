@@ -32,7 +32,7 @@ app.use(
       sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
       secure: process.env.NODE_ENV === 'production',
       httpOnly: true,
-      maxAge: 6000000000000000000
+      maxAge: 999999999999999
     },
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URI 
@@ -78,4 +78,5 @@ mongoose
     console.log(`An error occurred while connecting to the Database: ${err}`);
   });
 
+  
 module.exports = app;

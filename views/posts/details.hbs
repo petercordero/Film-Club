@@ -1,17 +1,19 @@
-{{!-- posts/details.hbs --}}
-
+<div class="center">
 <h2>{{title}}</h2>
 <div>
-  <h4>{{content}}</h4>
+  <p>{{content}}<p>
   <br>
-  <h5>posted by {{author.username}} 📽️</h5>
+  <h4>Rating: {{rating}}/10</h4>
+  <h4>Posted by {{author.username}} 📽️</h4>
 </div>
 
-<img class="movie-posters" src="{{imageUrl}}" alt="film">
-
+<img class="movie-posters" src="{{imageUrl}}" alt="poster">
+<br>
 <a href="/posts/edit/{{_id}}">Edit Review</a>
 <a href="/posts/delete/{{_id}}">Delete Review</a>
 
+<h3>Comments</h3>
+<br>
 {{#unless comments}}
   <p>No comments yet!</p> 
 {{/unless}}
@@ -33,4 +35,5 @@
 </form>
 
 <br>
-<a href="/users/posts/{{author._id}}">See all {{author.username}}'s posts</a>
+<a href="/users/posts/{{author._id}}">See all of {{author.username}}'s posts</a>
+</div>

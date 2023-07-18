@@ -1,9 +1,12 @@
+<div class="center">
 <h2>Film Club Community</h2>
 
 <ul>
   {{#each users}}
     <li> 
-      <a href="/users/posts/{{author._id}}">{{ this.username }}</a>
+      <a href="/users/posts/{{this._id}}">{{ this.username }}</a>
     </li>
+    <br>
   {{/each}}
 </ul>
+</div>

@@ -56,10 +56,6 @@ router.post("/sign-up", (req, res, next) => {
       console.log(err)
       next(err)
     })
-
-
-
-
 });
 
 
@@ -91,7 +87,6 @@ router.post('/login', isLoggedOut, (req, res, next) => {
         req.session.user = user
 
         console.log("Session:", req.session)
-        console.log("This is a session", req.session)
 
         res.redirect('/')
       } else {
@@ -99,9 +94,6 @@ router.post('/login', isLoggedOut, (req, res, next) => {
         console.log("Incorrect password.");
         res.render('users/login.hbs', { message: 'User not found and/or password is incorrect.' });
       }
-
-
-
     })
     .catch(error => {
       console.log("Error:", error)
@@ -121,7 +113,7 @@ router.get('/user-profile', isLoggedIn, (req, res) => {
     })
     .then((foundUserInfo) => {
       console.log("Found user:", foundUserInfo)
-      res.render('users/user-profile.hbs', { userInSession: req.session.user, userInfo: foundUserInfo });
+      res.render('users/user-profile.hbs', { userInSession: req.session.user, userInfo: foundUserInfo, posts: foundUserInfo.posts });
     })
     .catch(error => {
       console.log("Error:", error)
@@ -141,7 +133,7 @@ router.get("/posts/:userId", (req, res, next) => {
   })
     .populate('author')
     .then((foundPosts) => {
-      res.render('users/user-profile.hbs', { posts: foundPosts })
+      res.render('users/user-profile.hbs', { posts: foundPosts, author: foundPosts[0].author })
     })
     .catch((err) => {
       next(err)

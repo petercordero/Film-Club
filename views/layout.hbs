@@ -12,16 +12,14 @@
       <a href="/users">Community</a>
 
       {{#unless loggedUser}}
-
       <a href="/users/sign-up">Sign Up</a>
       <a href="/users/login">Login</a>
       {{/unless}}
 
        {{#if loggedUser}}
-<a href="/users/user-profile">Your Profile</a>
+      <a href="/users/user-profile">Your Profile</a>
       <a href="/users/logout">Logout</a>
-
-         {{/if}}
+        {{/if}}
       
     </nav>
     {{{body}}}

@@ -1,4 +1,4 @@
-<div id="form">
+<div class="center">
   <h2>Login</h2>
 
   <form action="/users/login" method="POST">
@@ -13,8 +13,14 @@
 
     <button type="submit">Login</button>
 
-    {{#if message}}
-      <p class="error">{{message}}</p>
-    {{/if}}
+    <br>
+
+    <h4>Don't have an account? Sign up <a href="/users/sign-up">here!</a></h4>
   </form>
+    
+    <div>
+    {{#if message}}
+      <p><b>{{message}}</b></p>
+    {{/if}}
+    </div>
 </div>

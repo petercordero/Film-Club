@@ -26,4 +26,8 @@ h1 {
   height: 60vh;
 }
 
- 
+.center {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}

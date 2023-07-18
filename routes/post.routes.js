@@ -11,11 +11,11 @@ router.get("/new-review", isLoggedIn, (req, res) => {
     })
 
 router.post('/new-review', isLoggedIn, (req, res, next) => {
-  const { title, content, imageUrl } = req.body;
+  const { title, content, imageUrl, rating } = req.body;
 
   const author  = req.session.user._id
 
-  Post.create({ title, content, imageUrl, author })
+  Post.create({ title, content, rating, imageUrl, author })
     .then(dbPost => {
 
       console.log("DBPOST", dbPost, author )
@@ -86,7 +86,8 @@ router.post('/edit/:postId', (req, res, next) => {
       {
           title,
           content,
-          imageUrl
+          imageUrl,
+          rating
       },
       {new: true}
   )

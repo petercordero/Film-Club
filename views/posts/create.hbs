@@ -1,21 +1,31 @@
+<div class="center">
 <h2>Log a new Review!</h2>
 
 <form action="/posts/new-review" method="POST">
   <label> Film Title:
-    <input type="text" name="title" />
+    <input type="text" name="title">
   </label>
+  <br>
   <br>
 
   <label> Review:
     <textarea type="text" name="content"> </textarea>
   </label>
   <br>
-
-<label for="imageUrl">Image URL:</label>
-    <input id="imageUrl" type="text" name="imageUrl">
 <br>
 
+ <label> Rating (1-10):
+    <input type="number" name="rating" min="1" max="10">
+  </label>
+  <br>
+<br>
+
+<label for="imageUrl">Poster URL:
+    <input id="imageUrl" type="text" name="imageUrl">
+    </label>
+<br>
   <br>
 
   <button type="submit"> Post Review </button>
 </form>
+</div>

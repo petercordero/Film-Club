@@ -1,4 +1,5 @@
 <div class="center">
+  <br>
 {{#if userInSession}}
   <h2>Welcome, {{ userInSession.username }}!</h2>
   <p>Your reviews are listed below!</p>
@@ -11,6 +12,7 @@
     <li>
          <a href="/posts/details/{{this._id}}">{{ this.title }} by {{this.author.username}}</a>   
     </li>
+    <br>
   {{/each}}
 </ul>
 </div>

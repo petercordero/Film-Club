@@ -1,23 +1,25 @@
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: blue;
-}
-
 a {
-  color: black;
+  text-decoration: none;
+  color: #adb5bd
 }
+a:hover { 
+  transition: all;
+  transition-duration: 0.5s;
+  color:white;
 
-nav {
+}
+.nav {
   display: flex;
-  justify-content: space-around;
-  background-color: navy;
-  padding-bottom: 40px;
-  padding-top: 40px;
+  justify-content: space-evenly !important;
+  width: 100%
 }
 
 h1 {
-  display: flex;
-  justify-content: center;
+  color: white
+}
+
+h2 {
+  color: white
 }
 
 .movie-posters {
@@ -30,4 +32,25 @@ h1 {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+}
+
+.review {
+  padding-top: 10px;
+  display: inline-block;
+  text-align: center;
+  width: 300px;
+  height: 100px;
+  border: solid white 1px;
+  border-radius: 10px
+}
+
+ul {
+  list-style: none;
+}
+
+li::before {
+  content: "\2605";
+  color: white; 
+  font-weight: bold;
+  padding-right: 10px;
 }

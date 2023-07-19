@@ -1,27 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html data-bs-theme="dark">
   <head>
     <title>Film Club</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
   </head>
   <body>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/posts">Reviews</a>
-      <a href="/posts/new-review">New Review</a>
-      <a href="/users">Community</a>
-
-      {{#unless loggedUser}}
-      <a href="/users/sign-up">Sign Up</a>
-      <a href="/users/login">Login</a>
-      {{/unless}}
-
-       {{#if loggedUser}}
-      <a href="/users/user-profile">Your Profile</a>
-      <a href="/users/logout">Logout</a>
+<nav class="nav navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Film Club 📽️</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="nav navbar-nav">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/posts">Reviews</a>
+        <a class="nav-link" href="/posts/new-review">New Review</a>
+        <a class="nav-link" href="/users">Community</a>
+        {{#unless loggedUser}}
+        <a class="nav-link" href="/users/sign-up">Sign Up</a>
+        <a class="nav-link" href="/users/login">Login</a>
+        {{/unless}}
+        {{#if loggedUser}}
+        <a class="nav-link" href="/users/user-profile">Your Profile</a>
+        <a class="nav-link"href="/users/logout">Logout</a>
         {{/if}}
-      
-    </nav>
+      </div>
+    </div>
+  </div>
+</nav>
     {{{body}}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </body>
 </html>

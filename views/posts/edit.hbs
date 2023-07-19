@@ -1,4 +1,5 @@
 <div class="center">
+    <br>
 <h2>Edit Review</h2>
 
 <form action="/posts/edit/{{_id}}" method="post">
@@ -9,7 +10,10 @@
     <label for="content">Review:</label>
     <input id="content" type="text" name="content"value="{{content}}">
 
-    <label for="imageUrl">Image URL:</label>
+    <label for="rating">Rating:</label>
+    <input id="content" type="number" name="rating" value="{{rating}}">
+
+    <label for="imageUrl">Poster URL:</label>
     <input id="imageUrl" type="text" name="imageUrl" value="{{imageUrl}}">
 
     <button type="submit">Edit Review</button>

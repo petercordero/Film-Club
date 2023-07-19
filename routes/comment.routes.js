@@ -2,8 +2,9 @@ const router = require("express").Router();
 
 const Post = require("../models/Post.model");
 const Comment = require("../models/Comment.model");
+const { isLoggedIn } = require("../middleware/route-guard");
 
-router.post('/posts/comment/:postId', (req, res, next) => {
+router.post('/posts/comment/:postId', isLoggedIn, (req, res, next) => {
   const { postId } = req.params;
   const { content } = req.body;
   const  author  = req.session.user._id;

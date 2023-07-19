@@ -1,18 +1,22 @@
 <div class="center">
-<h2>{{title}}</h2>
-<div>
-  <p>{{content}}<p>
   <br>
-  <h4>Rating: {{rating}}/10</h4>
-  <h4>Posted by {{author.username}} 📽️</h4>
-</div>
-
+<h2>{{title}}</h2>
+<br>
+<h5>Posted by <a href="/users/posts/{{author._id}}">{{author.username}}</a> 📽️</h5>
+<br>
 <img class="movie-posters" src="{{imageUrl}}" alt="poster">
+<br>
+<div class="center">
+  <p class="review">{{content}}<p>
+  <h5>Rating: {{rating}}/10</h5>
+</div>
 <br>
 <a href="/posts/edit/{{_id}}">Edit Review</a>
 <a href="/posts/delete/{{_id}}">Delete Review</a>
-
-<h3>Comments</h3>
+<br>
+<h6><a href="/users/posts/{{author._id}}">See all of {{author.username}}'s posts</a></h6>
+<br>
+<h2>Comments</h2>
 <br>
 {{#unless comments}}
   <p>No comments yet!</p> 
@@ -24,16 +28,17 @@
 
 <hr>
 
-<h3>Add comment</h3>
-
+<h2>Add comment</h2>
+<br>
 <form action="/comments/posts/comment/{{_id}}" method="post">
 
   <input type="text" name="postAuthor" value="{{author.username}}" hidden />
   <textarea name="content" cols="30" rows="2"></textarea>
-
+<br>
   <button type="submit">Comment</button>
 </form>
 
 <br>
-<a href="/users/posts/{{author._id}}">See all of {{author.username}}'s posts</a>
+
+<br>
 </div>

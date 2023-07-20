@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 const Post = require("../models/Post.model");
 const Comment = require("../models/Comment.model");
-const { isLoggedIn } = require("../middleware/route-guard");
+const { isLoggedIn, isLoggedOut } = require("../middleware/route-guard");
 
 router.post('/posts/comment/:postId', isLoggedIn, (req, res, next) => {
   const { postId } = req.params;

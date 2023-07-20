@@ -1,12 +1,11 @@
 <div class="center">
   <br>
 {{#if userInSession}}
-  <h2>Welcome, {{ userInSession.username }}!</h2>
-  <p>Your reviews are listed below!</p>
+  <h2>{{ userInSession.username }}'s Reviews</h2>
   {{else}}
-<h2>{{author.username}}'s Profile</h2>
+<h2>{{author.username}}'s Reviews</h2>
 {{/if}}
-
+<br>
 <ul>
  {{#each posts}}
     <li>

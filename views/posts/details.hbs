@@ -1,28 +1,28 @@
 <div class="center">
   <br>
-<h2>{{title}}</h2>
+<h2>{{post.title}}</h2>
+<h5>Posted by <a href="/users/posts/{{post.author._id}}">{{post.author.username}}</a> 📽️ | {{now}}</h5>
 <br>
-<h5>Posted by <a href="/users/posts/{{author._id}}">{{author.username}}</a> 📽️</h5>
-<br>
-<img class="movie-posters" src="{{imageUrl}}" alt="poster">
+<img class="movie-posters" src="{{post.imageUrl}}" alt="poster">
 <br>
 <div class="center">
-  <p class="review">{{content}}<p>
-  <h5>Rating: {{rating}}/10</h5>
+  <p class="review">{{post.content}}<p>
+  <h5>Rating: {{post.rating}}/10</h5>
 </div>
 <br>
-<a href="/posts/edit/{{_id}}">Edit Review</a>
-<a href="/posts/delete/{{_id}}">Delete Review</a>
+<p><a href="/posts/edit/{{post._id}}">Edit Review</a> | <a href="/posts/delete/{{post._id}}">Delete Review</a></p>
 <br>
-<h6><a href="/users/posts/{{author._id}}">See all of {{author.username}}'s posts</a></h6>
-<br>
+<h6><a href="/users/posts/{{post.author._id}}">See all of {{post.author.username}}'s posts</a></h6>
+
+<hr>
+
 <h2>Comments</h2>
 <br>
-{{#unless comments}}
+{{#unless post.comments}}
   <p>No comments yet!</p> 
 {{/unless}}
 
-{{#each comments}}
+{{#each post.comments}}
   <p><b>{{this.author.username}}:</b> {{this.content}}</p>
 {{/each}}
 
@@ -30,9 +30,9 @@
 
 <h2>Add comment</h2>
 <br>
-<form action="/comments/posts/comment/{{_id}}" method="post">
+<form action="/comments/posts/comment/{{post._id}}" method="post">
 
-  <input type="text" name="postAuthor" value="{{author.username}}" hidden />
+  <input type="text" name="postAuthor" value="{{post.author.username}}" hidden />
   <textarea name="content" cols="30" rows="2"></textarea>
 <br>
   <button type="submit">Comment</button>
@@ -40,5 +40,4 @@
 
 <br>
 
-<br>
 </div>

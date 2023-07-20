@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, now } = require("mongoose");
 
 const postSchema = new Schema(
   {
@@ -7,7 +7,7 @@ const postSchema = new Schema(
     content: String,
     imageUrl: { type: String, default: 'https://media.comicbook.com/files/img/default-movie.png' },
     rating: Number,
-    comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }]
+    comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
   },
   {
     timestamps: true

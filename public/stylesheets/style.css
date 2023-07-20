@@ -2,12 +2,24 @@ a {
   text-decoration: none;
   color: #adb5bd
 }
+
+.here {
+  display: inline;
+}
+
+#inline {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 a:hover { 
   transition: all;
   transition-duration: 0.5s;
   color:white;
 
 }
+
 .nav {
   display: flex;
   justify-content: space-evenly !important;
@@ -28,6 +40,10 @@ h2 {
   height: 60vh;
 }
 
+img {
+  border-radius: 10px;
+}
+
 .center {
   display: flex;
   flex-flow: column nowrap;
@@ -35,13 +51,15 @@ h2 {
 }
 
 .review {
-  padding-top: 10px;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
   display: inline-block;
-  text-align: center;
-  width: 300px;
-  height: 100px;
-  border: solid white 1px;
-  border-radius: 10px
+  width: 350px;
+  height: 150px;
+  border: solid white 5px;
+  border-radius: 10px;
 }
 
 ul {
@@ -53,4 +71,8 @@ li::before {
   color: white; 
   font-weight: bold;
   padding-right: 10px;
+}
+
+hr {
+  width: 50%;
 }

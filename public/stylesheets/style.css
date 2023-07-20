@@ -38,6 +38,7 @@ h2 {
   display: flex;
   justify-content: space-around;
   height: 60vh;
+  width: auto;
 }
 
 img {
@@ -75,4 +76,14 @@ li::before {
 
 hr {
   width: 50%;
+}
+
+@media (max-width: 480px) {
+  img {
+    width: auto;
+    height: 30vh;
+  }
+  body {
+    text-align: center
+  }
 }

@@ -81,7 +81,7 @@ hr {
 @media (max-width: 480px) {
   img {
     width: auto;
-    height: 20vh;
+    height: 10vh;
   }
   body {
     text-align: center

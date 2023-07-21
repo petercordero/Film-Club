@@ -125,7 +125,6 @@ router.get('/delete/:postId', isLoggedIn, isOwner, (req, res, next) => {
   
   Post.findByIdAndDelete(req.params.postId)
   .then((deletedPost) => {
-      // console.log("Deleted post:", deletedPost)
       res.redirect('/posts')
   })
   .catch((err) => {

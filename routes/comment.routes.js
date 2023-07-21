@@ -26,5 +26,4 @@ router.post('/posts/comment/:postId', isLoggedIn, (req, res, next) => {
     });
 });
 
-
 module.exports = router;

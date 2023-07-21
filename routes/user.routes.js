@@ -22,7 +22,7 @@ router.post("/sign-up", (req, res, next) => {
       .status(500)
       .render("users/sign-up", {
         message:
-          "Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter.",
+          "Password must contain at least 6 characters and at least one number, one lowercase and one uppercase letter.",
       });
     return;
   };

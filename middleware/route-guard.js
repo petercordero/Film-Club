@@ -38,4 +38,3 @@ const isLoggedIn = (req, res, next) => {
     isLoggedOut,
     isOwner
   };
-  
